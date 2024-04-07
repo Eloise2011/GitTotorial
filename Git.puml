@@ -1,0 +1,14 @@
+@startuml
+skinparam monochrome true
+
+nonGitManaged --> Untracked : git add
+Untracked --> Unmodified : git commit
+Untracked --> Modified : git add
+Modified --> Staged : git commit
+Unmodified --> Modified : git checkout or git reset HEAD
+Staged --> Modified : git reset HEAD
+Staged --> Unmodified : git commit
+Staged --> Untracked : git rm
+Unmodified --> Deleted : git rm
+Deleted --> Untracked : git commit
+@enduml
